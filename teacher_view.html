@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مضمون — استاد کا صفحہ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bh-maroon:#7A1C1C;
+    --bh-maroon-dark:#5A1414;
+    --bh-maroon-soft:#9B3535;
+    --bh-gold:#C9A227;
+    --bh-gold-soft:#E5C15C;
+    --bh-cream:#FBF6EC;
+    --bh-cream-warm:#F5EBD7;
+    --bh-surface:#FFFFFF;
+    --bh-ink:#2A1F1F;
+    --bh-ink-soft:#5C4A4A;
+    --bh-line:#E6D8C0;
+    --bh-good:#3F7F55;
+    --bh-bad:#B84545;
+    --shadow-soft:0 8px 24px rgba(122,28,28,.08);
+    --shadow-lift:0 12px 40px rgba(122,28,28,.15);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    font-family:'Noto Naskh Arabic','Jameel Noori Nastaleeq', serif;
+    background:
+      radial-gradient(circle at 10% -5%, rgba(201,162,39,.10), transparent 40%),
+      radial-gradient(circle at 95% 100%, rgba(122,28,28,.08), transparent 45%),
+      linear-gradient(180deg, var(--bh-cream) 0%, var(--bh-cream-warm) 100%);
+    color:var(--bh-ink);
+    min-height:100vh;
+    padding:24px 16px 60px;
+    line-height:1.95;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    max-width:960px; margin:0 auto 22px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    animation:slideDown .6s cubic-bezier(.2,.7,.3,1);
+  }
+  @keyframes slideDown{
+    from{ opacity:0; transform:translateY(-14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand-mark{
+    width:44px; height:44px; border-radius:12px;
+    background:linear-gradient(135deg, var(--bh-maroon) 0%, var(--bh-maroon-soft) 100%);
+    color:var(--bh-gold-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; font-weight:700; font-size:1.35rem;
+    box-shadow:var(--shadow-soft);
+  }
+  .brand-text{
+    font-family:'Noto Nastaliq Urdu',serif;
+    font-size:1.1rem; color:var(--bh-maroon); line-height:1.2;
+  }
+  .brand-text small{
+    display:block; font-family:'Inter', sans-serif;
+    font-size:.72rem; color:var(--bh-ink-soft);
+    letter-spacing:.5px; text-transform:uppercase;
+  }
+  .topbar-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Noto Nastaliq Urdu',serif;
+    background:var(--bh-surface); color:var(--bh-maroon);
+    border:1.5px solid var(--bh-line);
+    padding:9px 16px; border-radius:10px; cursor:pointer;
+    font-size:.95rem; transition:all .18s ease;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn:hover{ background:var(--bh-maroon); color:#fff; border-color:var(--bh-maroon); transform:translateY(-1px); box-shadow:var(--shadow-soft); }
+  .btn.primary{ background:var(--bh-maroon); color:#fff; border-color:var(--bh-maroon); }
+  .btn.primary:hover{ background:var(--bh-maroon-dark); border-color:var(--bh-maroon-dark); }
+
+  /* ---------- card container ---------- */
+  .container{
+    max-width:960px; margin:0 auto;
+  }
+
+  /* ---------- header banner ---------- */
+  .banner{
+    background:linear-gradient(135deg, var(--bh-maroon) 0%, var(--bh-maroon-dark) 100%);
+    color:#fff;
+    border-radius:20px;
+    padding:32px 32px 28px;
+    box-shadow:var(--shadow-lift);
+    position:relative; overflow:hidden;
+    margin-bottom:22px;
+    animation:rise .7s .05s cubic-bezier(.2,.7,.3,1) both;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .banner::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 90% 20%, rgba(201,162,39,.35), transparent 45%),
+      radial-gradient(circle at 10% 100%, rgba(255,255,255,.08), transparent 40%);
+    pointer-events:none;
+  }
+  .banner::after{
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--bh-gold), var(--bh-gold-soft), var(--bh-gold));
+  }
+  .banner-label{
+    font-family:'Inter', sans-serif; font-size:.78rem;
+    letter-spacing:2px; text-transform:uppercase;
+    color:var(--bh-gold-soft); margin-bottom:6px; position:relative;
+  }
+  .banner h1{
+    font-family:'Noto Nastaliq Urdu',serif;
+    margin:0 0 4px; font-size:clamp(1.8rem, 4vw, 2.6rem);
+    line-height:1.4; position:relative;
+  }
+  .banner .subject-label{
+    display:inline-block; background:rgba(255,255,255,.15);
+    padding:3px 12px; border-radius:20px; font-size:.85rem;
+    margin-top:8px; position:relative;
+    backdrop-filter:blur(4px);
+  }
+
+  /* ---------- student meta ---------- */
+  .meta-card{
+    background:var(--bh-surface); border-radius:16px;
+    padding:20px 24px; margin-bottom:22px;
+    box-shadow:var(--shadow-soft);
+    border-top:3px solid var(--bh-gold);
+    animation:rise .7s .15s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .meta-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:14px 18px;
+  }
+  .meta-item{
+    display:flex; flex-direction:column; gap:2px;
+    animation:fadeIn .5s ease both;
+  }
+  .meta-item .label{
+    font-family:'Inter', sans-serif; font-size:.7rem;
+    letter-spacing:1.2px; text-transform:uppercase;
+    color:var(--bh-ink-soft);
+  }
+  .meta-item .value{
+    font-family:'Noto Nastaliq Urdu',serif; font-size:1.05rem;
+    color:var(--bh-maroon); font-weight:700;
+  }
+  .meta-item .value.empty{ color:#B4A79A; font-weight:400; font-style:italic; }
+  @keyframes fadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+  }
+
+  /* ---------- essay sections ---------- */
+  .essay-wrap{
+    display:grid; gap:18px;
+  }
+  .essay-part{
+    background:var(--bh-surface); border-radius:16px;
+    padding:24px 26px; box-shadow:var(--shadow-soft);
+    position:relative; overflow:hidden;
+    animation:rise .7s cubic-bezier(.2,.7,.3,1) both;
+  }
+  .essay-part:nth-child(1){ animation-delay:.25s; }
+  .essay-part:nth-child(2){ animation-delay:.35s; }
+  .essay-part:nth-child(3){ animation-delay:.45s; }
+  .essay-part::before{
+    content:''; position:absolute; top:0; right:0; bottom:0; width:5px;
+    background:linear-gradient(180deg, var(--bh-maroon), var(--bh-maroon-soft));
+  }
+  .essay-part.gold::before{ background:linear-gradient(180deg, var(--bh-gold), var(--bh-gold-soft)); }
+
+  .part-header{
+    display:flex; align-items:center; gap:12px; margin-bottom:14px;
+    padding-bottom:12px; border-bottom:1px dashed var(--bh-line);
+  }
+  .part-num{
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg, var(--bh-maroon), var(--bh-maroon-soft));
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:'Noto Nastaliq Urdu',serif; font-size:1.15rem; font-weight:700;
+    box-shadow:var(--shadow-soft);
+  }
+  .essay-part.gold .part-num{
+    background:linear-gradient(135deg, var(--bh-gold), var(--bh-gold-soft));
+    color:var(--bh-ink);
+  }
+  .part-title{
+    font-family:'Noto Nastaliq Urdu',serif;
+    font-size:1.35rem; color:var(--bh-maroon);
+    margin:0;
+  }
+  .part-title small{
+    display:block; font-family:'Inter', sans-serif;
+    font-size:.7rem; color:var(--bh-ink-soft);
+    letter-spacing:1px; text-transform:uppercase; margin-top:2px;
+  }
+  .part-content{
+    font-size:1.08rem; color:var(--bh-ink);
+    white-space:pre-wrap; word-wrap:break-word;
+    padding:0 4px;
+  }
+
+  /* ---------- footer meta ---------- */
+  .submission-info{
+    margin-top:22px; padding:16px 20px;
+    background:rgba(122,28,28,.04);
+    border-radius:12px;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px;
+    font-size:.88rem; color:var(--bh-ink-soft);
+    animation:fadeIn .6s .55s ease both;
+  }
+  .submission-info .id-tag{
+    font-family:'Inter', monospace; font-size:.75rem;
+    background:rgba(122,28,28,.08); padding:3px 10px; border-radius:6px;
+    color:var(--bh-maroon);
+  }
+
+  /* ---------- loading state ---------- */
+  .state{
+    max-width:520px; margin:80px auto 0;
+    background:var(--bh-surface); border-radius:20px;
+    padding:48px 32px; text-align:center;
+    box-shadow:var(--shadow-lift);
+    animation:rise .6s ease both;
+  }
+  .loader-ring{
+    width:60px; height:60px; margin:0 auto 20px;
+    border:5px solid var(--bh-cream-warm);
+    border-top-color:var(--bh-maroon);
+    border-radius:50%;
+    animation:spin .9s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .state h2{
+    font-family:'Noto Nastaliq Urdu',serif;
+    color:var(--bh-maroon); margin:0 0 8px; font-size:1.5rem;
+  }
+  .state p{ color:var(--bh-ink-soft); margin:0; }
+  .state .icon{
+    font-size:3rem; margin-bottom:12px;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.08); }
+  }
+  .state.error .icon{ color:var(--bh-bad); }
+
+  /* ---------- print ---------- */
+  @media print{
+    body{ background:#fff; padding:0; }
+    .topbar, .btn{ display:none !important; }
+    .banner{ box-shadow:none; border-radius:0; color:#000; background:#fff; border-bottom:3px solid var(--bh-maroon); }
+    .banner-label, .banner .subject-label{ color:var(--bh-maroon); background:none; }
+    .banner::before, .banner::after{ display:none; }
+    .banner h1{ color:var(--bh-maroon); }
+    .meta-card, .essay-part{ box-shadow:none; border:1px solid var(--bh-line); page-break-inside:avoid; }
+    .submission-info{ background:none; border-top:1px solid var(--bh-line); }
+  }
+
+  @media (max-width:640px){
+    .banner{ padding:24px 20px; }
+    .essay-part{ padding:20px; }
+    .meta-card{ padding:16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-mark">B</div>
+    <div class="brand-text">
+      طلبہ کی تحریر
+      <small>Student Essay Portal</small>
+    </div>
+  </div>
+  <div class="topbar-actions" id="topbarActions" style="display:none;">
+    <button class="btn" onclick="window.print()">🖨️ پرنٹ</button>
+  </div>
+</div>
+
+<!-- ===== LOADING STATE ===== -->
+<div class="state" id="loadingState">
+  <div class="loader-ring"></div>
+  <h2>مضمون لوڈ ہو رہا ہے</h2>
+  <p>براہِ مہربانی چند لمحے انتظار کریں...</p>
+</div>
+
+<!-- ===== ERROR STATE ===== -->
+<div class="state error" id="errorState" style="display:none;">
+  <div class="icon">⚠️</div>
+  <h2 id="errorTitle">مضمون نہیں ملا</h2>
+  <p id="errorMsg">یہ لنک درست نہیں ہے یا مضمون موجود نہیں۔</p>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container" id="mainContent" style="display:none;">
+
+  <div class="banner">
+    <div class="banner-label">Essay / مضمون</div>
+    <h1 id="essayTopic"></h1>
+    <span class="subject-label">اردو — مضمون نویسی</span>
+  </div>
+
+  <div class="meta-card">
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="label">Student Name</span>
+        <span class="value" id="mStudent"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Class</span>
+        <span class="value" id="mClass"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Section</span>
+        <span class="value" id="mSection"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Roll Number</span>
+        <span class="value" id="mRoll"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">School / Branch</span>
+        <span class="value" id="mSchool"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Teacher</span>
+        <span class="value" id="mTeacher"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="essay-wrap">
+    <div class="essay-part">
+      <div class="part-header">
+        <div class="part-num">۱</div>
+        <div>
+          <h3 class="part-title">تمہید<small>Introduction</small></h3>
+        </div>
+      </div>
+      <div class="part-content" id="pTamheed"></div>
+    </div>
+
+    <div class="essay-part gold">
+      <div class="part-header">
+        <div class="part-num">۲</div>
+        <div>
+          <h3 class="part-title">نفسِ مضمون<small>Body</small></h3>
+        </div>
+      </div>
+      <div class="part-content" id="pMatan"></div>
+    </div>
+
+    <div class="essay-part">
+      <div class="part-header">
+        <div class="part-num">۳</div>
+        <div>
+          <h3 class="part-title">اختتام<small>Conclusion</small></h3>
+        </div>
+      </div>
+      <div class="part-content" id="pIkhtitam"></div>
+    </div>
+  </div>
+
+  <div class="submission-info">
+    <div>جمع کروانے کی تاریخ: <span id="mTimestamp"></span></div>
+    <div class="id-tag" id="mId"></div>
+  </div>
+
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — paste the same Web App URL as the student page
+   ========================================================= */
+const CONFIG = {
+  WEB_APP_URL: 'https://script.google.com/macros/s/AKfycby-y1vX1beTA7_ElG2ubpfSLGMjsG_j50UeWaiU2Gesq6GwDAhjq9ATZAl5rzNPDaXf/exec'
+};
+
+/* ---------- helpers ---------- */
+function getParam(name){
+  const url = new URL(window.location.href);
+  return url.searchParams.get(name);
+}
+
+function setValue(id, val, fallback){
+  const el = document.getElementById(id);
+  if(val && val.toString().trim()){
+    el.textContent = val;
+    el.classList.remove('empty');
+  } else {
+    el.textContent = fallback || '—';
+    el.classList.add('empty');
+  }
+}
+
+function formatDate(iso){
+  if(!iso) return '—';
+  try {
+    const d = new Date(iso);
+    if(isNaN(d.getTime())) return iso;
+    const pad = n => String(n).padStart(2, '0');
+    return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate())
+      + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  } catch(e){ return iso; }
+}
+
+function showError(title, msg){
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'none';
+  document.getElementById('errorTitle').textContent = title;
+  document.getElementById('errorMsg').textContent = msg;
+  document.getElementById('errorState').style.display = 'block';
+}
+
+async function loadSubmission(){
+  const id = getParam('id');
+  if(!id){
+    showError('کوئی شناخت نہیں ملی', 'یہ لنک درست نہیں ہے۔ براہِ مہربانی مکمل لنک استعمال کریں۔');
+    return;
+  }
+  if(CONFIG.WEB_APP_URL.indexOf('PASTE_') === 0){
+    showError('سرور سیٹ نہیں ہے', 'ایڈمن نے سرور کا پتہ نہیں لگایا۔ براہِ مہربانی سیٹ اپ مکمل کریں۔');
+    return;
+  }
+
+  try {
+    const url = CONFIG.WEB_APP_URL + (CONFIG.WEB_APP_URL.indexOf('?') >= 0 ? '&' : '?') + 'id=' + encodeURIComponent(id);
+    const res = await fetch(url, { method: 'GET' });
+    const data = await res.json();
+    if(data.status !== 'success' || !data.data){
+      showError('مضمون نہیں ملا', data.message || 'اس شناخت سے کوئی مضمون موجود نہیں ہے۔');
+      return;
+    }
+    render(data.data);
+  } catch(err){
+    showError('کوئی مسئلہ آ گیا', 'ڈیٹا لوڈ نہیں ہو سکا۔ انٹرنیٹ چیک کر کے دوبارہ کوشش کریں۔ ' + err.message);
+  }
+}
+
+function render(d){
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+  document.getElementById('topbarActions').style.display = 'flex';
+
+  document.getElementById('essayTopic').textContent = d.topic || 'مضمون';
+  setValue('mStudent', d.studentName);
+  setValue('mClass', d.className);
+  setValue('mSection', d.section);
+  setValue('mRoll', d.rollNumber);
+  setValue('mSchool', d.school);
+  setValue('mTeacher', d.teacherName);
+  document.getElementById('pTamheed').textContent = d.tamheed || '—';
+  document.getElementById('pMatan').textContent = d.matan || '—';
+  document.getElementById('pIkhtitam').textContent = d.ikhtitam || '—';
+  document.getElementById('mTimestamp').textContent = formatDate(d.timestamp);
+  document.getElementById('mId').textContent = 'ID: ' + (d.id || '—');
+
+  document.title = (d.studentName || 'طالب علم') + ' — ' + (d.topic || 'مضمون');
+}
+
+loadSubmission();
+</script>
+</body>
+</html>
